@@ -12,11 +12,21 @@ function App() {
 		}
 	]);
 
+	const addNewMember = member => {
+		const newMember = {
+			name: member.name,
+			email: member.email,
+			role: member.role
+		};
+
+		setMembers([...members, newMember]);
+	};
+
 	return (
 		<div className='App'>
 			<h1>Team Members</h1>
 			<MembersList members={members} />
-			<MemberForm addMember={setMembers} />
+			<MemberForm addNewMember={addNewMember} />
 		</div>
 	);
 }
